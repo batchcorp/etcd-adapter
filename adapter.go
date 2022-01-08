@@ -106,7 +106,7 @@ func (a *Adapter) connect() error {
 
 	if a.authConfig != nil {
 		if a.authConfig.UseTLS {
-			tlsConfig, err := createTLSConfig(a.authConfig.CACert, a.authConfig.ClientCert, a.authConfig.ClientKey)
+			tlsConfig, err := CreateTLSConfig(a.authConfig.CACert, a.authConfig.ClientCert, a.authConfig.ClientKey)
 			if err != nil {
 				return errors.Wrap(err, "unable to create TLS config")
 			}
@@ -130,7 +130,7 @@ func (a *Adapter) connect() error {
 	return nil
 }
 
-func createTLSConfig(caCert, clientCert, clientKey string) (*tls.Config, error) {
+func CreateTLSConfig(caCert, clientCert, clientKey string) (*tls.Config, error) {
 	cert, err := tls.X509KeyPair([]byte(clientCert), []byte(clientKey))
 	if err != nil {
 		return nil, errors.Wrap(err, "unable to load cert + key")
