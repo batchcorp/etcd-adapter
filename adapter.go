@@ -14,8 +14,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/batchcorp/casbin/v2/model"
-	"github.com/batchcorp/casbin/v2/persist"
+	"github.com/casbin/casbin/v2/model"
+	"github.com/casbin/casbin/v2/persist"
 	"github.com/pkg/errors"
 	client "go.etcd.io/etcd/client/v3"
 )
